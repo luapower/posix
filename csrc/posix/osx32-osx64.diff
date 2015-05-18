@@ -1,0 +1,106 @@
+6d5
+< 	i386                 = 1,
+176c175
+< typedef int __darwin_ptrdiff_t;
+---
+> typedef long int __darwin_ptrdiff_t;
+217c216
+<  char __opaque[36];
+---
+>  char __opaque[56];
+221c220
+<  char __opaque[24];
+---
+>  char __opaque[40];
+225c224
+<  char __opaque[4];
+---
+>  char __opaque[8];
+229c228
+<  char __opaque[40];
+---
+>  char __opaque[56];
+237c236
+<  char __opaque[4];
+---
+>  char __opaque[8];
+241c240
+<  char __opaque[124];
+---
+>  char __opaque[192];
+245c244
+<  char __opaque[12];
+---
+>  char __opaque[16];
+250c249
+<  char __opaque[4088];
+---
+>  char __opaque[8176];
+593c592
+< typedef struct __darwin_mcontext32 *mcontext_t;
+---
+> typedef struct __darwin_mcontext64 *mcontext_t;
+615c614
+<  struct __darwin_mcontext32 *uc_mcontext;
+---
+>  struct __darwin_mcontext64 *uc_mcontext;
+769,771c768,770
+< 	INTPTR_MIN           = INT32_MIN,
+< 	INTPTR_MAX           = INT32_MAX,
+< 	UINTPTR_MAX          = UINT32_MAX,
+---
+> 	INTPTR_MIN           = INT64_MIN,
+> 	INTPTR_MAX           = INT64_MAX,
+> 	UINTPTR_MAX          = UINT64_MAX,
+775,777c774,776
+< 	PTRDIFF_MIN          = INT32_MIN,
+< 	PTRDIFF_MAX          = INT32_MAX,
+< 	SIZE_MAX             = UINT32_MAX,
+---
+> 	PTRDIFF_MIN          = INT64_MIN,
+> 	PTRDIFF_MAX          = INT64_MAX,
+> 	SIZE_MAX             = UINT64_MAX,
+793,794c792,793
+< #define INTMAX_C(v) (v ## LL)
+< #define UINTMAX_C(v) (v ## ULL)
+---
+> #define INTMAX_C(v) (v ## L)
+> #define UINTMAX_C(v) (v ## UL)
+803c802
+< typedef long long int intmax_t;
+---
+> typedef long int intmax_t;
+806c805
+< typedef long long unsigned int uintmax_t;
+---
+> typedef long unsigned int uintmax_t;
+851c850
+< typedef int32_t register_t;
+---
+> typedef int64_t register_t;
+1281c1280
+< typedef unsigned long __darwin_wctype_t;
+---
+> typedef __uint32_t __darwin_wctype_t;
+2151,2153c2150,2152
+< 	ULONG_MAX            = 0xffffffffUL,
+< 	LONG_MAX             = 2147483647L,
+< 	LONG_MIN             = (-2147483647L-1),
+---
+> 	ULONG_MAX            = 0xffffffffffffffffUL,
+> 	LONG_MAX             = 0x7fffffffffffffffL,
+> 	LONG_MIN             = (-0x7fffffffffffffffL-1),
+2157c2156
+< 	LONG_BIT             = 32,
+---
+> 	LONG_BIT             = 64,
+3128,3129c3127,3128
+< typedef int jmp_buf[(18)];
+< typedef int sigjmp_buf[(18) + 1];
+---
+> typedef int jmp_buf[((9 * 2) + 3 + 16)];
+> typedef int sigjmp_buf[((9 * 2) + 3 + 16) + 1];
+3235c3234
+< typedef int ptrdiff_t;
+---
+> typedef long int ptrdiff_t;
